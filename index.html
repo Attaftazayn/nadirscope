@@ -312,31 +312,25 @@ backToTop.addEventListener('click', () => {
     </nav>
     
     <!-- Right Side -->
-    <div class="flex items-center gap-3">
-      <a href="#contact" class="hidden sm:inline-block bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-dark transition shadow-md">
-        Contact
-      </a>
-      
-      <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl focus:outline-none">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </header>
-  <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 transition">
-    <i class="fas fa-moon text-gray-700"></i>
+<!-- Right Side: Dark Mode Toggle + Contact Button + Mobile Menu Button -->
+<div class="flex items-center gap-3">
+  
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 transition" title="Ubah Tema">
+    <i id="darkModeIcon" class="fas fa-moon text-gray-700 text-lg"></i>
   </button>
   
-  <script>
-  const toggle = document.getElementById('darkModeToggle');
-  const icon = toggle.querySelector('i');
-  toggle.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    icon.classList.toggle('fa-moon');
-    icon.classList.toggle('fa-sun');
-    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-  });
-  </script>
+  <a href="#contact" class="hidden sm:inline-block bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-dark transition shadow-md">
+    Contact
+  </a>
+  
+  <!-- Mobile Menu Button (Hamburger) -->
+  <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+  </header>
+
   <!-- ===== MOBILE SIDEBAR MENU ===== -->
   <div id="mobileSidebar" class="fixed inset-0 z-50 hidden">
     <div id="sidebarOverlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
