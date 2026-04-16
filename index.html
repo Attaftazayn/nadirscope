@@ -142,6 +142,19 @@
     }
   </style>
 </head>
+<button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full shadow-lg hidden items-center justify-center hover:bg-primary-dark transition z-40">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  backToTop.classList.toggle('hidden', window.scrollY < 300);
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
 <body class="bg-white text-gray-900 antialiased">
   <div id="preloader" class="fixed inset-0 z-[100] bg-white flex items-center justify-center">
     <div class="text-center w-64">
@@ -310,7 +323,20 @@
       </button>
     </div>
   </header>
-
+  <button id="darkModeToggle" class="p-2 rounded-lg hover:bg-gray-100 transition">
+    <i class="fas fa-moon text-gray-700"></i>
+  </button>
+  
+  <script>
+  const toggle = document.getElementById('darkModeToggle');
+  const icon = toggle.querySelector('i');
+  toggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  });
+  </script>
   <!-- ===== MOBILE SIDEBAR MENU ===== -->
   <div id="mobileSidebar" class="fixed inset-0 z-50 hidden">
     <div id="sidebarOverlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
