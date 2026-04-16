@@ -98,6 +98,9 @@
     .dark .hero-overlay {
       background: linear-gradient(90deg, rgba(26, 26, 46, 0.92) 0%, rgba(26, 26, 46, 0.85) 100%);
     }
+    .dark .shadow-lg, .dark .shadow-md, .dark .shadow-xl {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
     
     /* Colors */
     .bg-primary { background-color: #513FB2; }
@@ -112,12 +115,6 @@
       to { transform: rotate(360deg); }
     }
     .animate-spin { animation: spin 1s linear infinite; }
-    
-    @keyframes spin-slow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .animate-spin-slow { animation: spin-slow 2s linear infinite; }
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
@@ -136,7 +133,7 @@
     <div class="w-full h-2 bg-gray-200 rounded-full mt-4 overflow-hidden">
       <div id="progressBar" class="h-full bg-primary rounded-full" style="width: 0%; transition: width 0.1s linear;"></div>
     </div>
-    <p id="progressText" class="text-gray-600 mt-2 text-sm" style="font-family: 'Montserrat', sans-serif;">0%</p>
+    <p id="progressText" class="text-gray-600 mt-2 text-sm">0%</p>
   </div>
 </div>
 
@@ -211,7 +208,7 @@
     </div>
   </section>
 
-  <!-- ===== ABOUT US (Singkat untuk hemat ruang - tetap ada) ===== -->
+  <!-- ===== ABOUT US ===== -->
   <section id="about" class="py-20 px-6 md:px-12 bg-white">
     <div class="max-w-6xl mx-auto">
       <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
@@ -220,60 +217,225 @@
           <h2 class="section-title text-4xl md:text-5xl text-gray-900 mt-3 leading-tight">Akurasi tinggi,<br>data spasial tepercaya.</h2>
           <div class="w-20 h-1 bg-primary my-6"></div>
           <p class="text-gray-600 text-lg leading-relaxed">
-            <span style="color: #513FB2; font-weight: 600;">PT. Nadirscope</span> berdiri sejak 2026, mengkhususkan diri dalam survey pemetaan darat, udara, dan laut. Didukung oleh surveyor bersertifikat dan teknologi mutakhir.
+            <span style="color: #513FB2; font-weight: 600;">PT. Nadirscope</span> berdiri sejak 2026, mengkhususkan diri dalam survey pemetaan darat, udara, dan laut. Didukung oleh surveyor bersertifikat dan teknologi mutakhir seperti Total Station, Drone Lidar, GNSS RTK, dan Multibeam Echosounder.
           </p>
           <div class="grid grid-cols-2 gap-4 mt-8">
-            <div><i class="fas fa-check-circle text-primary mr-2"></i> 200+ Proyek</div>
-            <div><i class="fas fa-check-circle text-primary mr-2"></i> Tim Ahli</div>
-            <div><i class="fas fa-check-circle text-primary mr-2"></i> ISO 9001</div>
-            <div><i class="fas fa-check-circle text-primary mr-2"></i> Nasional</div>
+            <div><i class="fas fa-check-circle text-primary mr-2"></i> 200+ Proyek Selesai</div>
+            <div><i class="fas fa-check-circle text-primary mr-2"></i> Tim Ahli GIS & Surveyor</div>
+            <div><i class="fas fa-check-circle text-primary mr-2"></i> Sertifikasi ISO 9001</div>
+            <div><i class="fas fa-check-circle text-primary mr-2"></i> Jangkauan Nasional</div>
           </div>
         </div>
         <div class="md:w-1/2 relative">
           <img src="https://howertoneng.com/wp-content/uploads/2021/10/topographicalsurveyorsEdmond.jpg" alt="Surveyor" class="rounded-xl shadow-2xl object-cover w-full h-[380px] border-4 border-white">
-          <div class="absolute -bottom-6 -left-6 bg-primary text-white font-bold py-3 px-6 rounded-lg shadow-md"><i class="fas fa-users mr-2"></i> 10+ Tahun</div>
+          <div class="absolute -bottom-6 -left-6 bg-primary text-white font-bold py-3 px-6 rounded-lg shadow-md"><i class="fas fa-users mr-2"></i> 10+ Tahun Pengalaman</div>
+        </div>
+      </div>
+
+      <!-- Struktur Organisasi -->
+      <div class="mt-16">
+        <div class="text-center mb-12">
+          <span class="text-primary font-semibold uppercase tracking-wider text-sm">Tim Kami</span>
+          <h2 class="section-title text-4xl md:text-5xl text-gray-900 mt-3">Struktur Organisasi</h2>
+          <div class="w-24 h-1 bg-primary mx-auto mt-5"></div>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Didukung oleh tenaga profesional berpengalaman di bidang survey dan pemetaan.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition group">
+            <div class="h-64 overflow-hidden bg-gray-100">
+              <img src="images/nauvel.jpeg" alt="M. Nauvel Al abror" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/300x300/513FB2/ffffff?text=Nauvel'">
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl text-gray-900 mb-1" style="font-family: 'CabinetGrotesk', sans-serif;">M. Nauvel Al abror</h3>
+              <p class="text-primary font-semibold text-sm uppercase tracking-wide">Manajer Perusahaan</p>
+              <div class="w-12 h-0.5 bg-primary/30 mx-auto my-3"></div>
+              <p class="text-gray-500 text-sm"><i class="fas fa-envelope mr-1 text-primary"></i> nauvel@nadirscope.co.id</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition group">
+            <div class="h-64 overflow-hidden bg-gray-100">
+              <img src="images/ariel.jpeg" alt="M. Ariel Fitrah Faishal" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/300x300/513FB2/ffffff?text=Ariel'">
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl text-gray-900 mb-1" style="font-family: 'CabinetGrotesk', sans-serif;">M. Ariel Fitrah Faishal</h3>
+              <p class="text-primary font-semibold text-sm uppercase tracking-wide">Surveyor</p>
+              <div class="w-12 h-0.5 bg-primary/30 mx-auto my-3"></div>
+              <p class="text-gray-500 text-sm"><i class="fas fa-envelope mr-1 text-primary"></i> ariel@nadirscope.co.id</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition group">
+            <div class="h-64 overflow-hidden bg-gray-100">
+              <img src="images/dapa.jpeg" alt="Dafa Rizky Nugraha" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/300x300/513FB2/ffffff?text=Dafa'">
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl text-gray-900 mb-1" style="font-family: 'CabinetGrotesk', sans-serif;">Dafa Rizky Nugraha</h3>
+              <p class="text-primary font-semibold text-sm uppercase tracking-wide">Asisten Surveyor</p>
+              <div class="w-12 h-0.5 bg-primary/30 mx-auto my-3"></div>
+              <p class="text-gray-500 text-sm"><i class="fas fa-envelope mr-1 text-primary"></i> dafa@nadirscope.co.id</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition group">
+            <div class="h-64 overflow-hidden bg-gray-100">
+              <img src="images/atta.jpeg" alt="Abul Fahmi Attaftazani" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/300x300/513FB2/ffffff?text=Atta'">
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl text-gray-900 mb-1" style="font-family: 'CabinetGrotesk', sans-serif;">Abul Fahmi Attaftazani</h3>
+              <p class="text-primary font-semibold text-sm uppercase tracking-wide">Drafter</p>
+              <div class="w-12 h-0.5 bg-primary/30 mx-auto my-3"></div>
+              <p class="text-gray-500 text-sm"><i class="fas fa-envelope mr-1 text-primary"></i> atta@nadirscope.co.id</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== LAYANAN (Singkat) ===== -->
+  <!-- ===== LAYANAN KAMI ===== -->
   <section id="services" class="py-20 px-6 md:px-12 bg-soft-gray">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
-        <h2 class="section-title text-4xl md:text-5xl text-gray-900">Layanan Kami</h2>
+        <h2 class="section-title text-4xl md:text-5xl text-gray-900" style="font-family: 'CabinetGrotesk', sans-serif;">Layanan Kami</h2>
         <div class="w-24 h-1 bg-primary mx-auto mt-5"></div>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-xl shadow-md"><h3 class="text-2xl mb-3">Topografi</h3><p class="text-gray-600">Pengukuran lahan dan pemetaan kontur.</p></div>
-        <div class="bg-white p-8 rounded-xl shadow-md"><h3 class="text-2xl mb-3">Drone LiDAR</h3><p class="text-gray-600">Pemetaan area luas cepat.</p></div>
-        <div class="bg-white p-8 rounded-xl shadow-md"><h3 class="text-2xl mb-3">Batimetri</h3><p class="text-gray-600">Survei kedalaman laut.</p></div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition border border-gray-100">
+          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6"><i class="fas fa-draw-polygon text-2xl text-primary"></i></div>
+          <h3 class="text-2xl text-gray-900 mb-3" style="font-family: 'CabinetGrotesk', sans-serif;">Topografi & Geodesi</h3>
+          <p class="text-gray-600">Pengukuran lahan, situasi detail, dan pemetaan kontur untuk perencanaan teknik sipil dan arsitektur.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition border border-gray-100">
+          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6"><i class="fas fa-drone text-2xl text-primary"></i></div>
+          <h3 class="text-2xl text-gray-900 mb-3" style="font-family: 'CabinetGrotesk', sans-serif;">Drone LiDAR & Fotogrametri</h3>
+          <p class="text-gray-600">Pemetaan area luas cepat, data point cloud, orthophoto, dan DSM resolusi tinggi.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition border border-gray-100">
+          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6"><i class="fas fa-water text-2xl text-primary"></i></div>
+          <h3 class="text-2xl text-gray-900 mb-3" style="font-family: 'CabinetGrotesk', sans-serif;">Batimetri & Hidrografi</h3>
+          <p class="text-gray-600">Survei kedalaman laut, sungai, dan danau menggunakan singlebeam/multibeam echosounder.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition border border-gray-100">
+          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6"><i class="fas fa-map-location-dot text-2xl text-primary"></i></div>
+          <h3 class="text-2xl text-gray-900 mb-3" style="font-family: 'CabinetGrotesk', sans-serif;">GIS & Pemetaan Digital</h3>
+          <p class="text-gray-600">Analisis spasial, pembuatan peta tematik, dan sistem informasi geografis berbasis web.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition border border-gray-100">
+          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6"><i class="fas fa-cubes text-2xl text-primary"></i></div>
+          <h3 class="text-2xl text-gray-900 mb-3" style="font-family: 'CabinetGrotesk', sans-serif;">Perhitungan Volume</h3>
+          <p class="text-gray-600">Kalkulasi cut and fill, stokpile tambang, dan galian timbunan dengan akurasi tinggi.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition border border-gray-100">
+          <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6"><i class="fas fa-file-signature text-2xl text-primary"></i></div>
+          <h3 class="text-2xl text-gray-900 mb-3" style="font-family: 'CabinetGrotesk', sans-serif;">Konsultasi & Sertifikasi</h3>
+          <p class="text-gray-600">Pendampingan teknis dan legalitas terkait pengukuran tanah dan sertifikat lahan.</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURE PROJECTS ===== -->
+  <section id="projects" class="py-20 px-6 md:px-12 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="section-title text-4xl text-gray-900" style="font-family: 'CabinetGrotesk', sans-serif;">Feature Projects</h2>
+          <div class="w-20 h-1 bg-primary mt-3"></div>
+        </div>
+        <div class="flex gap-3">
+          <button id="prevProjectBtn" class="w-12 h-12 rounded-full bg-white shadow-md border border-gray-200 text-primary hover:bg-primary hover:text-white transition flex items-center justify-center"><i class="fas fa-chevron-left text-xl"></i></button>
+          <button id="nextProjectBtn" class="w-12 h-12 rounded-full bg-white shadow-md border border-gray-200 text-primary hover:bg-primary hover:text-white transition flex items-center justify-center"><i class="fas fa-chevron-right text-xl"></i></button>
+        </div>
+      </div>
+
+      <div class="relative overflow-hidden rounded-2xl shadow-lg bg-white border border-gray-100">
+        <div id="projectSlider" class="flex transition-transform duration-500 ease-in-out">
+          
+          <div class="min-w-full flex flex-col md:flex-row">
+            <div class="md:w-1/2 h-72 md:h-auto"><img src="https://images.pexels.com/photos/1722183/pexels-photo-1722183.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pemetaan Universitas" class="w-full h-full object-cover"></div>
+            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-soft-gray">
+              <span class="text-primary text-sm font-semibold uppercase tracking-wider">Pemetaan Topografi</span>
+              <h3 class="text-3xl text-gray-900 mt-2 mb-4" style="font-family: 'CabinetGrotesk', sans-serif;">Departemen Teknik Geomatika ITS</h3>
+              <p class="text-gray-600 mb-6">Survey detail untuk pengembangan kampus terpadu seluas 45 hektar. Menggunakan drone LiDAR dan GNSS presisi tinggi.</p>
+              <div class="flex gap-4"><span class="bg-white px-4 py-2 rounded-full text-sm shadow-sm"><i class="far fa-calendar-alt mr-1 text-primary"></i> 2024</span><span class="bg-white px-4 py-2 rounded-full text-sm shadow-sm"><i class="fas fa-map-pin mr-1 text-primary"></i> Surabaya</span></div>
+            </div>
+          </div>
+          
+          <div class="min-w-full flex flex-col md:flex-row">
+            <div class="md:w-1/2 h-72 md:h-auto"><img src="https://images.pexels.com/photos/2547565/pexels-photo-2547565.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Survey Batimetri" class="w-full h-full object-cover"></div>
+            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-soft-gray">
+              <span class="text-primary text-sm font-semibold uppercase tracking-wider">Batimetri & Hidrografi</span>
+              <h3 class="text-3xl text-gray-900 mt-2 mb-4" style="font-family: 'CabinetGrotesk', sans-serif;">Pelabuhan Internasional Patimban</h3>
+              <p class="text-gray-600 mb-6">Pemetaan dasar laut menggunakan multibeam echosounder untuk mendukung pengerukan alur pelayaran.</p>
+              <div class="flex gap-4"><span class="bg-white px-4 py-2 rounded-full text-sm shadow-sm"><i class="far fa-calendar-alt mr-1 text-primary"></i> 2023</span><span class="bg-white px-4 py-2 rounded-full text-sm shadow-sm"><i class="fas fa-map-pin mr-1 text-primary"></i> Subang</span></div>
+            </div>
+          </div>
+          
+          <div class="min-w-full flex flex-col md:flex-row">
+            <div class="md:w-1/2 h-72 md:h-auto"><img src="https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pemetaan Tambang" class="w-full h-full object-cover"></div>
+            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-soft-gray">
+              <span class="text-primary text-sm font-semibold uppercase tracking-wider">Pemetaan Volumetrik</span>
+              <h3 class="text-3xl text-gray-900 mt-2 mb-4" style="font-family: 'CabinetGrotesk', sans-serif;">PT. Tambang Mineral Nusantara</h3>
+              <p class="text-gray-600 mb-6">Survey progress tambang dan perhitungan volume stockpile menggunakan drone fotogrametri.</p>
+              <div class="flex gap-4"><span class="bg-white px-4 py-2 rounded-full text-sm shadow-sm"><i class="far fa-calendar-alt mr-1 text-primary"></i> 2025</span><span class="bg-white px-4 py-2 rounded-full text-sm shadow-sm"><i class="fas fa-map-pin mr-1 text-primary"></i> Kalimantan Timur</span></div>
+            </div>
+          </div>
+          
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
   <section id="contact" class="py-20 px-6 md:px-12 bg-primary text-white">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <h2 class="text-4xl leading-tight mb-4">Siap berkolaborasi? <br>Hubungi kami.</h2>
-        <p class="text-white/80 text-lg mb-8">Tim surveyor kami siap mendiskusikan kebutuhan proyek Anda.</p>
+        <h2 class="text-4xl text-white leading-tight mb-4" style="font-family: 'CabinetGrotesk', sans-serif;">Siap berkolaborasi? <br>Hubungi kami.</h2>
+        <p class="text-white/80 text-lg mb-8">Tim surveyor kami siap mendiskusikan kebutuhan proyek Anda. Dapatkan konsultasi gratis.</p>
         <div class="space-y-4">
-          <div class="flex items-center gap-4"><i class="fab fa-whatsapp w-6"></i> <a href="https://wa.me/6285236340400" class="hover:underline">+62 852-3634-0400</a></div>
-          <div class="flex items-center gap-4"><i class="fab fa-instagram w-6"></i> <a href="#" class="hover:underline">@nadirscope</a></div>
-          <div class="flex items-center gap-4"><i class="fas fa-envelope w-6"></i> <span>info@nadirscope.co.id</span></div>
-          <div class="flex items-center gap-4"><i class="fas fa-map-marker-alt w-6"></i> <span>Jl. Gebang Putih No. 62, Sukolilo, Surabaya</span></div>
+          <div class="flex items-center gap-4"><i class="fab fa-whatsapp w-6 text-white text-xl"></i> <a href="https://wa.me/6285236340400" target="_blank" class="hover:underline hover:text-white/90">+62 852-3634-0400</a></div>
+          <div class="flex items-center gap-4"><i class="fab fa-instagram w-6 text-white text-xl"></i> <a href="https://instagram.com/nadirscope" target="_blank" class="hover:underline hover:text-white/90">@nadirscope</a></div>
+          <div class="flex items-center gap-4"><i class="fas fa-envelope w-6 text-white"></i> <span>info@nadirscope.co.id</span></div>
+          <div class="flex items-center gap-4"><i class="fas fa-map-marker-alt w-6 text-white"></i> <span>Jl. Gebang Putih No. 62, Sukolilo, Surabaya, Jawa Timur 60117</span></div>
         </div>
       </div>
-      <div class="bg-white p-8 rounded-xl text-gray-800">
-        <h3 class="text-2xl text-gray-900 mb-5">Kirim Pesan</h3>
+      
+      <div class="bg-white p-8 rounded-xl text-gray-800 shadow-2xl">
+        <h3 class="text-2xl text-gray-900 mb-5" style="font-family: 'CabinetGrotesk', sans-serif;">Kirim Pesan</h3>
         <form id="contactForm" class="space-y-4">
-          <input type="text" placeholder="Nama Lengkap" class="w-full border p-3 rounded-lg">
-          <input type="email" placeholder="Email" class="w-full border p-3 rounded-lg">
-          <textarea rows="3" placeholder="Pesan..." class="w-full border p-3 rounded-lg"></textarea>
-          <button type="submit" class="bg-primary text-white py-3 px-6 rounded-lg w-full hover:bg-primary-dark">Kirim</button>
+          <input type="text" placeholder="Nama Lengkap" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-primary outline-none">
+          <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-primary outline-none">
+          <textarea rows="3" placeholder="Pesan atau kebutuhan proyek..." class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-primary outline-none"></textarea>
+          <button type="submit" class="bg-primary text-white font-semibold py-3 px-6 rounded-lg w-full hover:bg-primary-dark transition shadow">Kirim <i class="fas fa-paper-plane ml-2"></i></button>
         </form>
-        <p id="formFeedback" class="text-green-600 text-sm mt-3 hidden">Pesan terkirim!</p>
+        <p id="formFeedback" class="text-green-600 text-sm mt-3 hidden">Pesan terkirim! (simulasi)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GOOGLE MAPS ===== -->
+  <section class="py-10 px-6 md:px-12 bg-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-semibold" style="font-family: 'CabinetGrotesk', sans-serif; color: #513FB2;">Lokasi Kantor Kami</h3>
+        <p class="text-gray-600 mt-2">Jl. Gebang Putih No. 62, Sukolilo, Surabaya, Jawa Timur 60117</p>
+      </div>
+      <div class="rounded-xl overflow-hidden shadow-lg border-4 border-white">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.7235269821215!2d112.783913!3d-7.288646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb9c7a1e6c43%3A0x9a4b8c8f8b7a7b6d!2sJl.%20Gebang%20Putih%20No.62%2C%20Gebang%20Putih%2C%20Kec.%20Sukolilo%2C%20Surabaya%2C%20Jawa%20Timur%2060117!5e0!3m2!1sid!2sid!4v1699999999999!5m2!1sid!2sid" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="text-center mt-6">
+        <a href="https://www.google.com/maps?q=Jl.+Gebang+Putih+No.62,+Sukolilo,+Surabaya" target="_blank" class="inline-block bg-primary text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-primary-dark transition" style="background-color: #513FB2;"><i class="fas fa-map-marked-alt mr-2"></i>Buka di Google Maps</a>
       </div>
     </div>
   </section>
@@ -282,24 +444,25 @@
   <footer class="bg-gray-900 text-gray-300 py-10 px-6 md:px-12">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
       <div class="flex items-center gap-3 mb-4 md:mb-0">
-        <img src="images/Asset 1@3x.png" alt="Nadirscope" class="h-8 w-auto">
-        <span class="text-xl text-white" style="font-family: 'CabinetGrotesk', sans-serif;">Nadirscope</span>
+        <img src="images/Asset 1@3x.png" alt="PT. Nadirscope" class="h-8 w-auto">
+        <span class="text-xl tracking-tight text-white" style="font-family: 'CabinetGrotesk', sans-serif; font-weight: 700;">Nadirscope</span>
       </div>
-      <p class="text-sm">© 2026 PT. Nadirscope – Survey Pemetaan.</p>
-      <div class="flex gap-5">
-        <a href="#" class="hover:text-primary"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="hover:text-primary"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="hover:text-primary"><i class="fab fa-youtube"></i></a>
+      <p class="text-sm">© 2026 PT. Nadirscope – Survey Pemetaan. Seluruh hak cipta.</p>
+      <div class="flex gap-5 mt-4 md:mt-0">
+        <a href="#" class="hover:text-primary transition"><i class="fab fa-linkedin text-xl"></i></a>
+        <a href="#" class="hover:text-primary transition"><i class="fab fa-instagram text-xl"></i></a>
+        <a href="#" class="hover:text-primary transition"><i class="fab fa-youtube text-xl"></i></a>
       </div>
     </div>
   </footer>
+  
 </main>
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
 (function(){
   
-  // Preloader
+  // ===== PRELOADER =====
   const progressBar = document.getElementById('progressBar');
   const progressText = document.getElementById('progressText');
   const preloader = document.getElementById('preloader');
@@ -327,7 +490,7 @@
     }
   }, interval);
   
-  // Back to Top
+  // ===== BACK TO TOP =====
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     backToTop.classList.toggle('hidden', window.scrollY < 300);
@@ -336,7 +499,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
   
-  // Dark Mode
+  // ===== DARK MODE =====
   const darkToggle = document.getElementById('darkModeToggle');
   const darkIcon = document.getElementById('darkModeIcon');
   if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -354,7 +517,32 @@
     }
   });
   
-  // Mobile Sidebar
+  // ===== PROJECT SLIDER =====
+  const slider = document.getElementById('projectSlider');
+  const prevBtn = document.getElementById('prevProjectBtn');
+  const nextBtn = document.getElementById('nextProjectBtn');
+  
+  if (slider && prevBtn && nextBtn) {
+    const slides = slider.children;
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    
+    const updateSlider = () => {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    };
+    
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    });
+  }
+  
+  // ===== MOBILE SIDEBAR =====
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const mobileSidebar = document.getElementById('mobileSidebar');
   const closeSidebarBtn = document.getElementById('closeSidebarBtn');
@@ -362,54 +550,65 @@
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
   
   function openSidebar() {
-    mobileSidebar.classList.remove('hidden');
-    document.body.classList.add('sidebar-open');
-  }
-  function closeSidebar() {
-    mobileSidebar.classList.add('hidden');
-    document.body.classList.remove('sidebar-open');
+    if (mobileSidebar) {
+      mobileSidebar.classList.remove('hidden');
+      document.body.classList.add('sidebar-open');
+    }
   }
   
-  mobileMenuBtn?.addEventListener('click', openSidebar);
-  closeSidebarBtn?.addEventListener('click', closeSidebar);
-  sidebarOverlay?.addEventListener('click', closeSidebar);
+  function closeSidebar() {
+    if (mobileSidebar) {
+      mobileSidebar.classList.add('hidden');
+      document.body.classList.remove('sidebar-open');
+    }
+  }
+  
+  if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openSidebar);
+  if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', closeSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
   
   mobileNavLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
       if (href && href !== '#') {
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
           closeSidebar();
-          setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 300);
+          setTimeout(() => { target.scrollIntoView({ behavior: 'smooth' }); }, 300);
         }
       }
     });
   });
   
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !mobileSidebar.classList.contains('hidden')) closeSidebar();
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileSidebar && !mobileSidebar.classList.contains('hidden')) {
+      closeSidebar();
+    }
   });
   
-  window.addEventListener('resize', () => {
+  window.addEventListener('resize', function() {
     if (window.innerWidth >= 768) closeSidebar();
   });
   
-  // Contact Form
+  // ===== CONTACT FORM =====
   const form = document.getElementById('contactForm');
   const feedback = document.getElementById('formFeedback');
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    feedback.classList.remove('hidden');
-    setTimeout(() => feedback.classList.add('hidden'), 3000);
-    form.reset();
-  });
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (feedback) {
+        feedback.classList.remove('hidden');
+        setTimeout(() => feedback.classList.add('hidden'), 3000);
+      }
+      form.reset();
+    });
+  }
   
-  // Smooth Scroll
+  // ===== SMOOTH SCROLL =====
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const href = anchor.getAttribute('href');
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
       if (href === '#' || href === '') return;
       const target = document.querySelector(href);
       if (target) {
@@ -421,5 +620,6 @@
   
 })();
 </script>
+
 </body>
 </html>
