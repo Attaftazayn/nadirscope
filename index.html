@@ -40,91 +40,56 @@
   </script>
   
   <style>
-    /* ============================================ */
-    /* FONT CUSTOM - Cabinet Grotesk & Montserrat   */
-    /* ============================================ */
-    
-    @font-face {
-      font-family: 'CabinetGrotesk';
-      src: url('fonts/CabinetGrotesk-Bold.otf') format('opentype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    @font-face {
-      font-family: 'Montserrat';
-      src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype-variations');
-      font-weight: 100 900;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    /* Base Styles */
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
-      background-color: #ffffff;
-      color: #1a1a2e;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-    
-    /* Cabinet Grotesk untuk semua heading */
-    h1, h2, h3, h4, h5, h6,
-    .font-heading,
-    .navbar-brand,
-    .hero-title,
-    .section-title {
-      font-family: 'CabinetGrotesk', 'Montserrat', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    
-    /* Montserrat untuk body text */
-    p, li, a:not(.navbar-brand), span:not(.navbar-brand), 
-    button, input, textarea, .body-text {
-      font-family: 'Montserrat', 'Inter', sans-serif;
-    }
-    
-    /* Navbar link styles */
-    .nav-link {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-    }
-    
-    /* Hero overlay - putih transparan */
-    .hero-overlay {
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.85) 100%);
-    }
-    
-    /* Smooth transition */
-    .fade-transition {
-      transition: opacity 0.5s ease-in-out;
-    }
-    
-    /* Custom underline hover */
-    .hover-underline {
-      position: relative;
-    }
-    
-    .hover-underline::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #513FB2;
-      transition: width 0.3s ease;
-    }
-    
-    .hover-underline:hover::after {
-      width: 100%;
-    }
+    /* custom smooth behavior & small tweaks */
+html { scroll-behavior: smooth; }
+body { 
+  font-family: 'Inter', sans-serif; 
+  transition: overflow 0.3s;
+}
+body.sidebar-open {
+  overflow: hidden;
+}
+h1, h2, h3, .font-display { font-family: 'Montserrat', sans-serif; }
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 100%);
+}
+.fade-transition {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Mobile Sidebar Animation */
+#mobileSidebar {
+  transition: opacity 0.3s ease;
+}
+#mobileSidebar.hidden {
+  display: none;
+}
+#mobileSidebar .transform {
+  transition: transform 0.3s ease-in-out;
+}
+#mobileSidebar:not(.hidden) > div:last-child {
+  transform: translateX(0);
+}
+#mobileSidebar.hidden > div:last-child {
+  transform: translateX(100%);
+}
+
+/* Warna Primary */
+.bg-primary {
+  background-color: #513FB2;
+}
+.bg-primary-dark {
+  background-color: #3d2e8a;
+}
+.text-primary {
+  color: #513FB2;
+}
+.hover\:text-primary:hover {
+  color: #513FB2;
+}
+.hover\:bg-primary-dark:hover {
+  background-color: #3d2e8a;
+}
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
@@ -163,6 +128,36 @@
   </div>
 </header>
 
+<!-- ===== MOBILE SIDEBAR MENU ===== -->
+<div id="mobileSidebar" class="fixed inset-0 z-50 hidden">
+  <!-- Overlay gelap -->
+  <div id="sidebarOverlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+  
+  <!-- Sidebar Content -->
+  <div class="absolute right-0 top-0 h-full w-64 bg-white shadow-xl">
+    <!-- Header Sidebar -->
+    <div class="flex items-center justify-between p-5 border-b border-gray-100">
+      <span class="text-xl font-bold" style="font-family: 'CabinetGrotesk', sans-serif; color: #513FB2;">Menu</span>
+      <button id="closeSidebarBtn" class="text-gray-500 hover:text-gray-700 text-xl">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <!-- Menu Items -->
+    <nav class="flex flex-col p-5 space-y-4">
+      <a href="#home" class="mobile-nav-link text-gray-700 hover:text-primary text-lg font-medium py-2 border-b border-gray-100">Home</a>
+      <a href="#about" class="mobile-nav-link text-gray-700 hover:text-primary text-lg font-medium py-2 border-b border-gray-100">About Us</a>
+      <a href="#projects" class="mobile-nav-link text-gray-700 hover:text-primary text-lg font-medium py-2 border-b border-gray-100">Projects</a>
+      <a href="#services" class="mobile-nav-link text-gray-700 hover:text-primary text-lg font-medium py-2 border-b border-gray-100">Services</a>
+      <a href="#contact" class="mobile-nav-link text-gray-700 hover:text-primary text-lg font-medium py-2 border-b border-gray-100">Contact</a>
+      
+      <!-- Contact Button Mobile -->
+      <a href="#contact" class="bg-primary text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition shadow-md mt-4">
+        Contact Us
+      </a>
+    </nav>
+  </div>
+</div>
   <!-- ===== HERO SECTION ===== -->
   <section id="home" class="relative w-full min-h-[600px] flex items-center bg-cover bg-center" 
            style="background-image: url('https://nwsurveyor.com/cdn/shop/articles/What-type-of-person-should-become-a-Land-Surveyor_db78e957-d290-41c0-b2b2-d508a298096e.jpg?v=1742504641');">
@@ -567,8 +562,10 @@
 
 <!-- JavaScript Slider & Form -->
 <script>
+  <script>
   (function(){
-    // Project Slider
+    
+    // ===== PROJECT SLIDER (Kode Lama - JANGAN DIHAPUS) =====
     const slider = document.getElementById('projectSlider');
     const prevBtn = document.getElementById('prevProjectBtn');
     const nextBtn = document.getElementById('nextProjectBtn');
@@ -593,7 +590,68 @@
       });
     }
     
-    // Contact Form Simulation
+    // ===== MOBILE SIDEBAR (KODE BARU - TAMBAHKAN DI SINI) =====
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    
+    function openSidebar() {
+      if (mobileSidebar) {
+        mobileSidebar.classList.remove('hidden');
+        document.body.classList.add('sidebar-open');
+      }
+    }
+    
+    function closeSidebar() {
+      if (mobileSidebar) {
+        mobileSidebar.classList.add('hidden');
+        document.body.classList.remove('sidebar-open');
+      }
+    }
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', openSidebar);
+    }
+    
+    if (closeSidebarBtn) {
+      closeSidebarBtn.addEventListener('click', closeSidebar);
+    }
+    
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+    
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#') {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            closeSidebar();
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+          }
+        }
+      });
+    });
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileSidebar && !mobileSidebar.classList.contains('hidden')) {
+        closeSidebar();
+      }
+    });
+    
+    window.addEventListener('resize', function() {
+      if (window.innerWidth >= 768) {
+        closeSidebar();
+      }
+    });
+    
+    // ===== CONTACT FORM (Kode Lama - JANGAN DIHAPUS) =====
     const form = document.getElementById('contactForm');
     const feedback = document.getElementById('formFeedback');
     if (form) {
@@ -607,7 +665,7 @@
       });
     }
     
-    // Smooth scroll
+    // ===== SMOOTH SCROLL (Kode Lama - JANGAN DIHAPUS) =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -619,7 +677,9 @@
         }
       });
     });
+    
   })();
+</script>
 </script>
 
 </body>
