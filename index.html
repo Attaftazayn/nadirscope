@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PT. Nadirscope – Survey & Pemetaan Presisi</title>
   
-  <!-- Favicon -->
-<link rel="icon" type="image/png" href="images/Asset 1@3x.png">
-<link rel="apple-touch-icon" href="images/Asset 1@3x.png">
+<!-- Favicon - Optimized for all devices -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="msapplication-TileColor" content="#513fb2">
+<meta name="theme-color" content="#513fb2">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -125,36 +130,38 @@
 <body class="bg-white text-gray-900 antialiased">
 
 <main class="max-w-[1600px] mx-auto shadow-lg">
+<!-- ===== HEADER / NAVBAR ===== -->
+<header class="flex items-center justify-between px-6 md:px-12 py-5 bg-white sticky top-0 z-50 border-b border-gray-100">
   
-  <!-- ===== HEADER / NAVBAR ===== -->
-  <header class="flex items-center justify-between px-6 md:px-12 py-5 bg-white sticky top-0 z-50 border-b border-gray-100">
-    <!-- Logo & Brand -->
-    <div class="flex items-center gap-3">
-        <!-- Logo Image -->
-        <img src="images/Asset 1@3x.png" alt="PT. Nadirscope" class="h-10 w-auto">
-        <!-- Nadirscope full ungu -->
-        <span class="navbar-brand text-2xl tracking-tight" style="font-family: 'CabinetGrotesk', sans-serif; font-weight: 700; color: #513FB2;">
-          Nadirscope
-        </span>
-      </div>
+  <!-- Logo & Brand -->
+  <div class="flex items-center gap-3">
+    <img src="images/Asset 1@3x.png" alt="PT. Nadirscope" class="h-10 w-auto" onerror="this.style.display='none'">
+    <span class="navbar-brand text-2xl tracking-tight" style="font-family: 'CabinetGrotesk', sans-serif; font-weight: 700; color: #513FB2;">
+      Nadirscope
+    </span>
+  </div>
+  
+  <!-- Desktop Navigation -->
+  <nav class="hidden md:flex items-center space-x-8">
+    <a href="#home" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Home</a>
+    <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">About Us</a>
+    <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Projects</a>
+    <a href="#services" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Services</a>
+    <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Contact</a>
+  </nav>
+  
+  <!-- Right Side: Contact Button + Mobile Menu Button -->
+  <div class="flex items-center gap-3">
+    <a href="#contact" class="hidden sm:inline-block bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-dark transition shadow-md">
+      Contact
+    </a>
     
-    <!-- Navigation -->
-    <nav class="hidden md:flex items-center space-x-8">
-      <a href="#home" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Home</a>
-      <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">About Us</a>
-      <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Projects</a>
-      <a href="#services" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Services</a>
-      <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors font-medium">Contact</a>
-    </nav>
-    
-    <!-- Contact Button -->
-    <div>
-      <a href="#contact" class="hidden sm:inline-block bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-primary-dark transition shadow-md">
-        Contact
-      </a>
-      <button class="md:hidden text-gray-700 text-2xl"><i class="fas fa-bars"></i></button>
-    </div>
-  </header>
+    <!-- Mobile Menu Button (Hamburger) -->
+    <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl focus:outline-none">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
 
   <!-- ===== HERO SECTION ===== -->
   <section id="home" class="relative w-full min-h-[600px] flex items-center bg-cover bg-center" 
