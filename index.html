@@ -143,28 +143,85 @@
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
-<!-- Tambahkan di awal <body> -->
   <div id="preloader" class="fixed inset-0 z-[100] bg-white flex items-center justify-center">
-    <div class="text-center">
+    <div class="text-center w-64">
       
-      <!-- Logo Berputar -->
-      <div class="relative w-24 h-24 mx-auto">
-        <img src="images/logo-loader.png" alt="Nadirscope" 
-             class="w-full h-full object-contain animate-spin-slow">
+      <!-- Logo -->
+      <div class="relative w-28 h-28 mx-auto mb-6">
+        <div class="absolute inset-0 border-4 border-primary/10 rounded-full"></div>
+        <div class="absolute inset-0 border-4 border-transparent border-t-primary rounded-full animate-spin"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img src="images/Asset 1@3x.png" alt="Nadirscope" class="w-16 h-16 object-contain">
+        </div>
       </div>
       
       <!-- Teks -->
-      <h2 class="mt-6 text-2xl font-bold text-primary" style="font-family: 'CabinetGrotesk', sans-serif;">
+      <h2 class="text-2xl font-bold text-primary mb-2" style="font-family: 'CabinetGrotesk', sans-serif;">
         Nadirscope
       </h2>
       
       <!-- Progress Bar -->
-      <div class="w-48 h-1 bg-gray-200 rounded-full mt-4 mx-auto overflow-hidden">
-        <div class="h-full bg-primary rounded-full animate-loading-progress"></div>
+      <div class="w-full h-2 bg-gray-200 rounded-full mt-4 overflow-hidden">
+        <div id="progressBar" class="h-full bg-primary rounded-full" style="width: 0%; transition: width 0.1s linear;"></div>
       </div>
+      
+      <!-- Persentase -->
+      <p id="progressText" class="text-gray-600 mt-2 text-sm" style="font-family: 'Montserrat', sans-serif;">0%</p>
       
     </div>
   </div>
+  
+  <style>
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+  </style>
+  
+  <script>
+  // Fungsi loading palsu
+  function fakeLoading() {
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+    const preloader = document.getElementById('preloader');
+    
+    let progress = 0;
+    const duration = 4000; // 4 detik total
+    const interval = 40; // Update setiap 40ms
+    const step = 100 / (duration / interval);
+    
+    const timer = setInterval(() => {
+      progress += step;
+      
+      if (progress >= 100) {
+        progress = 100;
+        progressBar.style.width = '100%';
+        progressText.textContent = '100%';
+        clearInterval(timer);
+        
+        // Tutup loading setelah selesai
+        setTimeout(() => {
+          preloader.style.transition = 'opacity 0.5s';
+          preloader.style.opacity = '0';
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 500);
+        }, 300);
+      } else {
+        progressBar.style.width = progress + '%';
+        progressText.textContent = Math.floor(progress) + '%';
+      }
+    }, interval);
+  }
+  
+  // Mulai loading palsu saat halaman dimuat
+  window.addEventListener('load', function() {
+    fakeLoading();
+  });
+  </script>
   
   <style>
   @keyframes spin-slow {
