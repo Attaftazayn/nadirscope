@@ -147,32 +147,55 @@
   <div id="preloader" class="fixed inset-0 z-[100] bg-white flex items-center justify-center">
     <div class="text-center">
       
-      <!-- Logo CSS Murni (Lingkaran dengan ikon survey) -->
+      <!-- Logo Berputar -->
       <div class="relative w-24 h-24 mx-auto">
-        <!-- Lingkaran berputar -->
-        <div class="absolute inset-0 border-4 border-primary/20 rounded-full"></div>
-        <div class="absolute inset-0 border-4 border-transparent border-t-primary rounded-full animate-spin"></div>
-        
-        <!-- Ikon Surveyor di tengah -->
-        <div class="absolute inset-0 flex items-center justify-center">
-          <i class="fas fa-map-location-dot text-4xl text-primary"></i>
-        </div>
+        <img src="images/logo-loader.png" alt="Nadirscope" 
+             class="w-full h-full object-contain animate-spin-slow">
       </div>
       
-      <!-- Teks Nadirscope -->
-      <h2 class="mt-6 text-2xl font-bold text-primary animate-pulse" style="font-family: 'CabinetGrotesk', sans-serif;">
+      <!-- Teks -->
+      <h2 class="mt-6 text-2xl font-bold text-primary" style="font-family: 'CabinetGrotesk', sans-serif;">
         Nadirscope
       </h2>
       
-      <!-- Loading dots -->
-      <div class="flex gap-1 justify-center mt-4">
-        <div class="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
-        <div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-        <div class="w-2 h-2 bg-primary rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+      <!-- Progress Bar -->
+      <div class="w-48 h-1 bg-gray-200 rounded-full mt-4 mx-auto overflow-hidden">
+        <div class="h-full bg-primary rounded-full animate-loading-progress"></div>
       </div>
       
     </div>
   </div>
+  
+  <style>
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spin-slow 2s linear infinite;
+  }
+  
+  @keyframes loading-progress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+  }
+  .animate-loading-progress {
+    animation: loading-progress 1.5s ease-in-out infinite;
+  }
+  </style>
+  
+  <script>
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+      preloader.style.transition = 'opacity 0.5s ease';
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    }, 2000);
+  });
+  </script>
   
   <style>
   @keyframes spin {
