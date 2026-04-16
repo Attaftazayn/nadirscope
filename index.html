@@ -43,16 +43,63 @@
     /* custom smooth behavior & small tweaks */
 html { scroll-behavior: smooth; }
 body { 
-  font-family: 'Inter', sans-serif; 
+  @font-face {
+  font-family: 'CabinetGrotesk';
+  src: url('fonts/CabinetGrotesk-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('fonts/Montserrat-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #1a1a2e;
+  line-height: 1.6;
+  font-weight: 400;
   transition: overflow 0.3s;
 }
+
 body.sidebar-open {
   overflow: hidden;
 }
-h1, h2, h3, .font-display { font-family: 'Montserrat', sans-serif; }
-.hero-overlay {
-  background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.85) 100%);
+
+/* Cabinet Grotesk untuk heading */
+h1, h2, h3, h4, h5, h6,
+.font-display,
+.navbar-brand,
+.hero-title,
+.section-title {
+  font-family: 'CabinetGrotesk', 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
+
+/* Montserrat untuk body text */
+p, li, a:not(.navbar-brand), span:not(.navbar-brand), 
+button, input, textarea, .body-text {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+}
+
+/* Hero overlay */
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.85) 100%);
+}
+
+/* Smooth transition */
 .fade-transition {
   transition: opacity 0.5s ease-in-out;
 }
@@ -61,32 +108,37 @@ h1, h2, h3, .font-display { font-family: 'Montserrat', sans-serif; }
 #mobileSidebar {
   transition: opacity 0.3s ease;
 }
+
 #mobileSidebar.hidden {
   display: none;
 }
-#mobileSidebar .transform {
+
+#mobileSidebar > div:last-child {
+  transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
 }
+
 #mobileSidebar:not(.hidden) > div:last-child {
   transform: translateX(0);
-}
-#mobileSidebar.hidden > div:last-child {
-  transform: translateX(100%);
 }
 
 /* Warna Primary */
 .bg-primary {
   background-color: #513FB2;
 }
+
 .bg-primary-dark {
   background-color: #3d2e8a;
 }
+
 .text-primary {
   color: #513FB2;
 }
+
 .hover\:text-primary:hover {
   color: #513FB2;
 }
+
 .hover\:bg-primary-dark:hover {
   background-color: #3d2e8a;
 }
