@@ -42,8 +42,7 @@
   <style>
     /* custom smooth behavior & small tweaks */
 html { scroll-behavior: smooth; }
-body { 
-  @font-face {
+@font-face {
   font-family: 'CabinetGrotesk';
   src: url('fonts/CabinetGrotesk-Bold.otf') format('opentype');
   font-weight: 700;
@@ -58,6 +57,19 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
+body {
+  font-family: 'Montserrat', 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a2e;
+  line-height: 1.6;
+  transition: overflow 0.3s;
+}
+
+body.sidebar-open { 
+  overflow: hidden; 
+}
+body { 
 
 /* Base Styles */
 html {
